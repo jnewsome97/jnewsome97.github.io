@@ -271,9 +271,9 @@ as required.</p>
 </li>
 </ul>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="helm-logo.png" alt="Helm Logo">
+<img src="_images/helm-logo.png" alt="Helm Logo">
 </div>
 </div>
 </div>
@@ -531,9 +531,9 @@ spec:
 <div class="paragraph">
 <p>In the ArgoCD interface you should see the successful deployment of the "bgd-helm" application.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="bgd-helm1.png" alt="bgd helm1">
+<img src="_images/bgd-helm1.png" alt="bgd helm1">
 </div>
 </div>
 <div class="paragraph">
@@ -542,17 +542,17 @@ spec:
 <div class="paragraph">
 <p>Access the application details by clicking on the "App Details" option.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="bgd-helm2.png" alt="bgd helm2">
+<img src="_images/bgd-helm2.png" alt="bgd helm2">
 </div>
 </div>
 <div class="paragraph">
 <p>Next, click on "Parameters." You will notice that there is no separate values file as the application is deployed directly from the Helm chart. However, it has automatically retrieved the following values:</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="bgd-helm3.png" alt="bgd helm3">
+<img src="_images/bgd-helm3.png" alt="bgd helm3">
 </div>
 </div>
 <div class="paragraph">
@@ -566,9 +566,9 @@ spec:
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get route bgd-helm -n user%USERNUM%-bgd -o jsonpath='{"http://"}{.spec.host}{"\n"}'</code></pre>
 </div>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="yellowoutput.png" alt="yellowoutput">
+<img src="_images/yellowoutput.png" alt="yellowoutput">
 </div>
 </div>
 </div>
@@ -645,9 +645,9 @@ image:
 <div class="paragraph">
 <p>Return to ArgoCD and click on "App Details," then navigate to the "Parameters" section, where you previously made changes. You’ll notice that the custom value file has been successfully added, and it has updated the values to display the animated balls in green.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="bgd-helm4.png" alt="bgd helm4">
+<img src="_images/bgd-helm4.png" alt="bgd helm4">
 </div>
 </div>
 <div class="paragraph">
@@ -746,9 +746,9 @@ spec:
 <div class="paragraph">
 <p>Return to the ArgoCD interface and navigate to the 'App Details' section. Click on 'Parameters.' You will notice that the custom values file, which was present in the previous example, has been successfully removed from the ArgoCD Application.</p>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="bgd-helm5.png" alt="bgd helm5">
+<img src="_images/bgd-helm5.png" alt="bgd helm5">
 </div>
 </div>
 <div class="paragraph">
@@ -765,9 +765,9 @@ spec:
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get route bgd-helm -n user%USERNUM%-bgd -o jsonpath='{"http://"}{.spec.host}{"\n"}'</code></pre>
 </div>
 </div>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="bgd-purple.png" alt="bgd purple">
+<img src="_images/bgd-purple.png" alt="bgd purple">
 </div>
 </div>
 </div>
