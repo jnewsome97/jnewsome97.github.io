@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Welcome to the MAD Ops Workshop Lab Guide :: OpenShift GitOps Workshop</title>
-    <link rel="canonical" href="https://openshiftdemos.github.io/openshift-gitops-workshop/openshift-gitops-workshop/index.html">
-    <link rel="next" href="01-getting-started.html">
+    <title>Lab Setup :: OpenShift GitOps Workshop</title>
+    <link rel="canonical" href="https://openshiftdemos.github.io/openshift-gitops-workshop/openshift-gitops-workshop/setup.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
@@ -229,79 +228,144 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link is-current"></a>
+  <a href="index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">OpenShift GitOps Workshop</a></li>
-    <li><a href="index.html">Welcome to the MAD Ops Workshop Lab Guide</a></li>
+    <li><a href="setup.html">Lab Setup</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/jnewsome97/jnewsome97.github.io/edit/master/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/jnewsome97/jnewsome97.github.io/edit/master/documentation/modules/ROOT/pages/setup.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Welcome to the MAD Ops Workshop Lab Guide</h1>
+<h1 class="page">Lab Setup</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to the <strong>Modern Application Development Roadshow</strong> Operations (Ops) Track lab guide.</p>
+<p>In this section, we&#8217;ll take a look at the setup of this OpenShift cluster we&#8217;re using for today&#8217;s lab.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_parameters"><a class="anchor" href="#_lab_parameters"></a>Lab Parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The lab values can be provided either via the launch URL or must be manually copied into the lab guide - see below.</p>
+</div>
+<div class="paragraph">
+<p>All these values need to be successfully set for the lab guide to personalise correctly for your environment.</p>
+</div>
+<div class="sect2">
+<h3 id="_lab_introduction_page"><a class="anchor" href="#_lab_introduction_page"></a>Lab Introduction Page</h3>
+<div class="paragraph">
+<p>Please use the lab introduction page to fill in any missing information:</p>
 </div>
 <div class="imageblock unresolved">
 <div class="content">
-<img src="madops-intro.png" alt="madops intro" width="400">
+<img src="rhpd-starter-screen.png" alt="RHPD Starter screen">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_required_lab_values"><a class="anchor" href="#_required_lab_values"></a>Required Lab Values</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenShift Console: <strong>%MASTER_URL%</strong></p>
+</li>
+<li>
+<p>Kubeadmin password: <strong>%KUBEADMIN_PASSWORD%</strong></p>
+</li>
+</ul>
+</div>
+<div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const kPass = urlParams.get('KUBEADMIN_PASSWORD');
+      const subDomain = urlParams.get('ROUTE_SUBDOMAIN');
+      const masterUrl = urlParams.get('MASTER_URL');
+      if (kPass && subDomain && masterUrl ) {
+        showValues( kPass, masterUrl );
+      }
+      else {
+        showValuesForm( kPass, masterUrl );
+      }
+    } );
+
+
+    function showValues( kPass, masterUrl ) {
+      document.getElementById('foobar-form-empty').style.display = "none";
+      document.getElementById('foobar-form-filled').style.display = "flex";
+      document.getElementById('kPass').value = kPass;
+      document.getElementById('masterUrl').value = masterUrl;
+
+    }
+
+    function showValuesForm(  kPass, masterUrl ) {
+      document.getElementById('foobar-form-empty').style.display = "flex";
+      document.getElementById('foobar-form-filled').style.display = "none";
+      document.getElementById('kPass').value = kPass;
+      document.getElementById('masterUrl').value = masterUrl;
+    }
+
+    function getSubdomain(masterUrl)
+    {
+        pos = masterUrl.indexOf(".apps.");
+        if (pos == -1)
+        {
+            return masterUrl;
+        }
+        else
+        {
+            // delivers a URL fragment of the form apps.xxx.yyy.com
+            return masterUrl.substring(pos+1);
+        }
+    }
+
+    function checkURL(url)
+    {
+      //chance to parse the url and check all elements are there using JavaScript
+      return url.trim();
+    }
+
+    function goWithValues() {
+      kPass = document.getElementById('kPass').value.trim();
+      masterUrl = checkURL(document.getElementById('masterUrl').value);
+      if (masterUrl != "")
+      {
+        subDomain = getSubdomain(masterUrl);
+      }
+
+      window.location.search = ('&KUBEADMIN_PASSWORD=' + kPass + '&ROUTE_SUBDOMAIN=' +
+          subDomain + '&MASTER_URL=' + masterUrl);
+
+    }
+
+  </script>
+
+    <div id="topbar-foo" class="foobar-menu">
+      <div class="foobar-item" id="foobar-form-empty">
+        <div><span class="foobar-text" style="margin-left: 1rem;"><h2>Set Lab Values</h2></span><br>
+        <span>
+        <form action="javascript:void(0);" onsubmit="goWithValues();">
+          OpenShift Console:<input size="50" id="masterUrl" type="text" placeholder="OpenShift Console URL" style="margin-left: 10px"><br>
+          Kubeadmin Password:<input size="30" id="kPass" type="text" placeholder="Kubeadmin password" style="margin-left: 10px"><br><br>
+          <input type="button" onclick="goWithValues()" value="Set Values" style="color: white; background: black; padding-top: 10px; padding-bottom: 10px; padding-right:20px; padding-left: 20px">
+        </form>
+        </span>
+        </div>
+      </div>
+
+      <div class="foobar-item" id="foobar-form-filled" style="display: none;">
+      </div>
+
+    </div>
 </div>
 </div>
 </div>
 </div>
-<div class="sect1 text-center strong">
-<h2>Getting Started</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Checking the lab environment is running, logging in and setting up the lab prerequisites</p>
-</div>
-<div class="paragraph">
-<p><strong><a href="setup.html" class="xref page">Getting Started</a></strong></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2>Operational Admin</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Hands-on tasks related to operational managment of an OpenShift Cluster. You will be <em>cluster-admin</em>
-for the day on your own cluster.</p>
-</div>
-<div class="paragraph">
-<p><strong><a href="environment.html" class="xref page">Operational Admin</a></strong></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2>Advanced Cluster Management</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Explore the cluster lifecycle for mnanaging multiple clusters. Learn about creating, upgrading, and destroying
-and importing clusters in a multi cloud environment.</p>
-</div>
-<div class="paragraph">
-<p><strong><a href="acm-multicluster.html" class="xref page">ACM</a></strong></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2>Advanced Cluster Security</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Explore using cluster security to detect vulnerabilities and then extend its capabilitities to DevSecOps inside a CI/CD piepline.</p>
-</div>
-<div class="paragraph">
-<p><strong><a href="acs-vulnerability.html" class="xref page">ACS</a></strong></p>
-</div>
-</div>
-</div>
-<nav class="pagination">
-  <span class="next"><a href="01-getting-started.html" class="query-params-link">1. Getting Started</a></span>
-</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
