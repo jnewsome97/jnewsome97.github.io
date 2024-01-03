@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>MachineSets, Machines, and Nodes :: OpenShift GitOps Workshop</title>
     <link rel="canonical" href="https://openshiftdemos.github.io/openshift-gitops-workshop/openshift-gitops-workshop/machinesets.html">
+    <link rel="prev" href="app-storage-basics.html">
+    <link rel="next" href="infra-nodes.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
@@ -71,133 +73,85 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="01-getting-started.html">1. Getting Started</a>
+    <a class="nav-link" href="setup.html">Getting Started</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="01-getting-started.html#cluster-login">Cluster Login</a>
+    <a class="nav-link" href="setup.html">Lab Setup</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="01-getting-started.html#open-web-terminal">Open the Web Terminal</a>
+    <a class="nav-link" href="01-getting-started.html">Logging in</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="02-gitops-basics.html">2. GitOps Basics</a>
+    <a class="nav-link" href="environment.html">Operational Admin</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="02-gitops-basics.html#review-argocd">Review Argo CD Deployment</a>
+    <a class="nav-link" href="environment.html">Environment</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="02-gitops-basics.html#connect-argocd">Connecting to Argo CD</a>
+    <a class="nav-link" href="installation.html">Installation &amp; Verification</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="02-gitops-basics.html#deploy-sample-application">Deploy a Sample Application</a>
+    <a class="nav-link" href="app-mgmt-basics.html">Application Management Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="app-storage-basics.html">Storage Basics</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="machinesets.html">Machinesets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="infra-nodes.html">Infra Nodes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="logging.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ldap-groupsync.html">LDAP Sync</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#monitoring-basics">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="template-quota-limits.html">Templates Quotas and Limits</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking.html">Networking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-project-self-provisioning.html">Project Self Provioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clusterresourcequota.html">Cluster Quotas</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="taints-and-tolerations.html">Taints and Tolerations</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="03-kustomize.html">3. Work with Kustomize</a>
+    <a class="nav-link" href="acm-multicluster.html">Advanced Cluster Admin</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="03-kustomize.html#exploring_kustomize">Exploring the Kustomize</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="03-kustomize.html#exploring_kustomize_cli">Exploring the Kustomize CLI</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="03-kustomize.html#exploring_kustomize_with_oc">Exploring Kustomize with <code>oc</code></a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="03-kustomize.html#deploying_kustomized_application">Deploying Kustomized Application</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="03-kustomize.html#argocd_web_console">The ArgoCD Web Console</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="03-kustomize.html#kustomized_application">Kustomized Application</a>
-  </li>
-</ul>
+    <a class="nav-link" href="acm-multicluster.html">Multicluster Admin</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="04-helm.html">4. Work with Helm</a>
+    <a class="nav-link" href="acs-vulnerability.html">Advanced Cluster Security</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="04-helm.html#exploring-helm">Exploring Helm</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="04-helm.html#exploring-helm-cli">Exploring the Helm CLI</a>
-  </li>
-</ul>
+    <a class="nav-link" href="acs-vulnerability.html">Vulnerability</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="04-helm.html#exploring-helm-charts">Exploring Helm Charts</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="04-helm.html#helm-template">Helm Template</a>
-  </li>
-</ul>
+    <a class="nav-link" href="acs-devsecops.html">DevSecOps</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="04-helm.html#helm-charts-deploy-applications">Helm Chart Deployment in Argo CD</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="04-helm.html#custom-values-files">Custom Values Files</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="04-helm.html#parameter_values">Parameter Values</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="04-helm.html#helm-conclusion">Conclusion: Helm on ArgoCD</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="05-syncwaves-hooks.html">5. Sync Waves and Hooks</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="05-syncwaves-hooks.html#using_syncwaves">Using Sync Waves</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="05-syncwaves-hooks.html#exploring_the_manifests_waves">Exploring Sync Wave Manifests</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="05-syncwaves-hooks.html#using_resource_hooks">Using Resource Hooks</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="05-syncwaves-hooks.html#exploring_the_manifests_hooks">Exploring Resource Hook Manifests</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="05-syncwaves-hooks.html#deploying_the_application">Deploying the Application</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="06-conclusion.html">6. Conclusion</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="06-conclusion.html#Resources">Resources</a>
+    <a class="nav-link" href="#gitops.adoc">GitOps</a>
   </li>
 </ul>
   </li>
@@ -232,7 +186,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">OpenShift GitOps Workshop</a></li>
-    <li><a href="machinesets.html">MachineSets, Machines, and Nodes</a></li>
+    <li><a href="environment.html">Operational Admin</a></li>
+    <li><a href="machinesets.html">Machinesets</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/jnewsome97/jnewsome97.github.io/edit/master/documentation/modules/ROOT/pages/machinesets.adoc">Edit this Page</a></div>
@@ -477,6 +432,10 @@ when you scaled up, a few steps ago.</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="app-storage-basics.html" class="query-params-link">Storage Basics</a></span>
+  <span class="next"><a href="infra-nodes.html" class="query-params-link">Infra Nodes</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
