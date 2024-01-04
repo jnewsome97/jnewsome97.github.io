@@ -10,10 +10,12 @@ following:
 * 2 or 3 worker nodes
 * 1 bastion host
 
+link:https://github.com/rhpds/showroom_template_default[Showroom] is a solution that provides this integrated lab guide, terminal. It is actually running inside the cluster that you will be interacting with.
+
 == Conventions
 You will see various code and command blocks throughout these exercises. 
 
-These blocks need to be copied to the terminal and exceuted.
+These blocks need to be copied to the terminal pane and exceuted.
 
 === Cluster Admin Authentication
 
