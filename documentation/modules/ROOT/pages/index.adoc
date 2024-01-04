@@ -10,9 +10,7 @@ This workshop has been crafted to equip participants with essential skills and k
 
 In the Ops Track you will learn about:
 
-* **OpenShift** Fundamentals
-
-* Designing Developer Environments in **OpenShift**
+* **OpenShift** Administrator Fundamentals
 
 * Multi-cluster management with **Red Hat Advanced Cluster Management (RHACM)**
 
