@@ -4,7 +4,7 @@
 
 Welcome to the *Modern Application Development Roadshow* Operations (Ops) Track lab guide.
 
-image::madops-intro.png[,400]
+image::mad_ops_intro.png[,400]
 
 [.text-center.strong]
 == Getting Started
