@@ -16,7 +16,9 @@ In the Ops Track you will learn about:
 
 * Improving security across hybrid cloud with **Red Hat Advanced Cluster Security (RHACS)**
 
-**Flexibility is key**—participants can explore modules in any order. Some sections have prerequisites, but you can start with Admin Operations or jump to RHACM and RHACS. **Discover value** in the Ops Track of the Modern App Development Roadshow.
+**Before you start:** Some sections of the Modern App Development Roadshow require prerequisites that are listed at the beginning of each module. Please check the prerequisites for each module before you begin.
+
+**Explore at your own pace**, You can start with Admin Operations or jump to RHACM and RHACS. Flexibility is key in the Ops Track of the Modern App Development Roadshow.
 
 [.text-center.strong]
 == Getting Started
