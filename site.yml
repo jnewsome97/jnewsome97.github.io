@@ -3,7 +3,7 @@ runtime:
 
 site:
   title: Modern Application Development Roadshow Ops Track
-  url: https://openshiftdemos.github.io/openshift-gitops-workshop
+  url: https://jnewsome97.github.io/openshift-gitops-workshop/index.html
   start_page: openshift-gitops-workshop::index.adoc
 
 content:
