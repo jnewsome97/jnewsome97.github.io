@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kustomize :: OpenShift GitOps Workshop</title>
+    <link rel="canonical" href="https://openshiftdemos.github.io/openshift-gitops-workshop/Modern%20Application%20Development%20Roadshow/03-kustomize.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
+          src="../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" href="https://openshiftdemos.github.io/openshift-gitops-workshop">OpenShift GitOps Workshop</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Books</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">CheatSheets</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">CheatSheet A</a>
+            <a class="navbar-item" href="#">CheatSheet B</a>
+            <a class="navbar-item" href="#">CheatSheet C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Upcoming Events</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Event A</a>
+            <a class="navbar-item" href="#">Event B</a>
+            <a class="navbar-item" href="#">Event C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Tutorial A</a>
+            <a class="navbar-item" href="#">Tutorial B</a>
+            <a class="navbar-item" href="#">Tutorial C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="Modern Application Development Roadshow" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html" class=" query-params-link">Modern Application Development Roadshow</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="setup.html">Getting Started</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="setup.html">Lab Setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-getting-started.html">Logging in</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="environment.html">Operational Admin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="environment.html">Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installation.html">Installation &amp; Verification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="app-mgmt-basics.html">Application Management Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="app-storage-basics.html">Application Storage Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="machinesets.html">MachineSets, Machines, and Nodes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="infra-nodes.html">Infrastructure Nodes and Operators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="logging.html">OpenShift Logging with Loki</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ldap-groupsync.html">External (LDAP) Authentication Providers, Users, and Groups</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#monitoring-basics">OpenShift Monitoring with Prometheus</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="template-quota-limits.html">Templates Quotas and Limits</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking.html">OpenShift Networking and NetworkPolicy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-project-self-provisioning.html">Disabling Project Self-Provisioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clusterresourcequota.html">Cluster Resource Quotas</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="taints-and-tolerations.html">Taints and Tolerations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="acm-multicluster.html">Advanced Cluster Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="acm-multicluster.html">Multicluster management with RHACM</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="acs-vulnerability.html">Advanced Cluster Security</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="acs-vulnerability.html">Vulnerability Scanning with RHACS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="acs-devsecops.html">DevSecOps with RHACS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Modern Application Development Roadshow</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Modern Application Development Roadshow</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Modern Application Development Roadshow</a></li>
+    <li><a href="03-kustomize.html">Kustomize</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/jnewsome97/jnewsome97.github.io/edit/master/documentation/modules/ROOT/pages/03-kustomize.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Kustomize</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://kustomize.io/">Kustomize</a> traverses a Kubernetes manifest to add,
+remove or update configuration options without forking. It is available both as
+a standalone binary and as a native feature of both <code>oc</code> and <code>kubectl</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exploring_kustomize"><a class="anchor" href="#exploring_kustomize"></a>Exploring Kustomize</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The principles of <code>kustomize</code> are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Purely declarative approach to configuration customization</p>
+</li>
+<li>
+<p>Manage an arbitrary number of distinctly customized Kubernetes configurations</p>
+</li>
+<li>
+<p>Every artifact that kustomize uses is plain YAML and can be validated and
+processed as such</p>
+</li>
+<li>
+<p>As a "templateless" templating system; it encourages using YAML without
+forking the repo it.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/kustomize_logo.png" alt="Kustomize Logo">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exploring_kustomize_cli"><a class="anchor" href="#exploring_kustomize_cli"></a>Exploring the Kustomize CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>kustomize</code> CLI should have been installed as part of the lab
+setup. Verify that it has been installed.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kustomize version --short</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This should display the version, it should look something like this.</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">{kustomize/v4.5.7  2022-08-02T16:35:54Z  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kustomize, at its core, is meant to build on top of native Kubernetes manifests
+based on YAML while leaving the original YAML intact. It achieves this in a
+"template-less" templating format. This is done by providing a
+<code>kustomization.yaml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>We will be focusing on two Kustomize sub-commands: the <code>build</code> command and the
+<code>edit</code> command.</p>
+</div>
+<div class="sect2">
+<h3 id="_kustomize_build"><a class="anchor" href="#_kustomize_build"></a>Kustomize <code>build</code></h3>
+<div class="paragraph">
+<p>The <code>build</code> command takes the YAML source (via a path or URL) and creates a new
+YAML that can be piped into <code>oc create</code>. We will work with an example in the
+<code>documentation/modules/ROOT/examples/kustomize-build</code> directory within the
+repository you cloned.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd ~/openshift-gitops-workshop/documentation/modules/ROOT/examples/kustomize-build</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here you should see two files, a <code>welcome.yaml</code> file and a <code>kustomization.yaml</code> file, let&#8217;s have a look at them.</p>
+</div>
+<div class="listingblock">
+<div class="title"><a href="https://github.com/OpenShiftDemos/openshift-gitops-workshop/blob/master/documentation/modules/ROOT/examples/kustomize-build/welcome.yaml" target="_blank" rel="noopener">welcome.yaml</a></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: welcome-php
+  name: welcome-php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: welcome-php
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: welcome-php
+    spec:
+      containers:
+      - image: quay.io/redhatworkshops/welcome-php:latest
+        name: welcome-php
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This file shows nothing special. Just a standard Kubernetes <code>Deployment</code> manifest.</p>
+</div>
+<div class="paragraph">
+<p>Now what if, for example, we wanted to add a <code>label</code> to this manifest without
+editing it? This is where the <code>kustomization.yaml</code> file comes in.</p>
+</div>
+<div class="listingblock">
+<div class="title"><a href="https://github.com/OpenShiftDemos/openshift-gitops-workshop/blob/master/documentation/modules/ROOT/examples/kustomize-build/kustomization.yaml" target="_blank" rel="noopener">kustomization.yaml</a></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ./welcome.yaml
+patches:
+- patch: |-
+    - op: add
+      path: /metadata/labels/testkey
+      value: testvalue
+  target:
+    group: apps
+    kind: Deployment
+    name: welcome-php
+    version: v1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see in the output, we only need a <code>resources</code> and a <code>patches</code> section to accomplish this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>resources</code> is an array of individual files, directories, and/or URLs where
+other manifests are stored. In this example we are just loading in one file.</p>
+</li>
+<li>
+<p>The <a href="https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/" target="blank"><code>patches</code></a> is where we add our label to this manifest.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can read about what options are available for patching in the
+<a href="https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/" target="blank">official documentation site</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Build this manifest by running:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kustomize build</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can see that the new label got added to the manifest!</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: welcome-php
+    testkey: testvalue # Our new label
+  name: welcome-php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: welcome-php
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: welcome-php
+    spec:
+      containers:
+      - image: quay.io/redhatworkshops/welcome-php:latest
+        name: welcome-php
+        resources: {}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kustomize_edit"><a class="anchor" href="#_kustomize_edit"></a>Kustomize <code>edit</code></h3>
+<div class="paragraph">
+<p>You can use the <code>kustomize edit</code> command to make manifest changes instead of manually writing YAML. For
+example, you can change the image tag the <code>Deployment</code> above uses from <code>latest</code>
+to <code>ffcd15</code> by running the following:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kustomize edit set image quay.io/redhatworkshops/welcome-php:ffcd15</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will update the <code>kustomization.yaml</code> file with an <code>images</code> section.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat kustomization.yaml</code></pre>
+</div>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ./welcome.yaml
+patches:
+- patch: |-
+    - op: add
+      path: /metadata/labels/testkey
+      value: testvalue
+  target:
+    group: apps
+    kind: Deployment
+    name: welcome-php
+    version: v1
+images:
+- name: quay.io/redhatworkshops/welcome-php
+  newTag: ffcd15</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now when you run:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"> kustomize build .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see not only the new label, but also the new <code>ffcd15</code> image tag!</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: welcome-php
+    testkey: testvalue
+  name: welcome-php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: welcome-php
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: welcome-php
+    spec:
+      containers:
+      - image: quay.io/redhatworkshops/welcome-php:ffcd15
+        name: welcome-php
+        resources: {}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You may have to close the <code>kustomization.yaml</code> tab and re-open it to
+see the changes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can now see how you can take existing YAML and modify it for
+your specific environment without the need to copy or edit the original.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Kustomize can also be used to write a new YAML file and pipe it into
+the <code>oc</code> (or <code>kubectl</code>) command for immediate execution in your environment. Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kustomize build . | oc apply -f -</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="exploring_kustomize_with_oc"><a class="anchor" href="#exploring_kustomize_with_oc"></a>Exploring Kustomize with <code>oc</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The OpenShift CLI (<code>oc</code>) has support for Kustomize built in.
+It inherits this from <code>kubectl</code> which has had this same support since Kubernetes 1.14.</p>
+</div>
+<div class="paragraph">
+<p>You can see this by running:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc kustomize --help</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can run the <code>kustomize build</code> command by doing:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre>oc kustomize</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Although you can use <code>oc kustomize</code> and pipe it into the <code>oc apply</code> command, you
+don&#8217;t have to. The <code>oc apply</code> command has the <code>-k</code> option that
+will run the build before it applies the manifest.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>oc kustomize</code> and <code>kubectl kustomize</code> implement a subset of the <code>kustomize</code>
+featureset. For example, the <code>edit</code> command is not implemented.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now you will apply your <code>kustomize</code>-d <code>Deployment</code> manifest into one of your projects:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ensure that you are in the <code>~/openshift-gitops-workshop/documentation/modules/ROOT/examples/kustomize-build</code> directory</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n user%USERNUM%-bgdk -k .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see the following letting you know the deployment was successful</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">deployment.apps/welcome-php created</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can pass not only directories, but URLs as well.
+The only requirement is that you have a <code>kustomization.yaml</code> file in the path.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now that the deployment is created, you should see the pods running in the namespace with</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n user%USERNUM%-bgdk</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The console should return something along the lines of</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                          READY   STATUS    RESTARTS   AGE
+welcome-php-9474fc448-sthzr   1/1     Running   0          34s</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also see the deployment was created with the additional labels</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get deployment welcome-php -o jsonpath='{.metadata.labels}' -n user%USERNUM%-bgdk | jq -r</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resulting in</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "app": "welcome-php",
+  "testkey": "testvalue"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, check that the image was updated based on the customization we made</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get deploy welcome-php -n user%USERNUM%-bgdk -o jsonpath='{.spec.template.spec.containers[].image}{"\n"}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output should return</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quay.io/redhatworkshops/welcome-php:ffcd15</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see <code>kustomize</code> can be a powerful tool.</p>
+</div>
+<div class="paragraph">
+<p>You can delete the applied resources with <code>oc delete</code> and kustomize, too</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc delete -n user%USERNUM%-bgdk -k .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once you run this command, check that you see the following to confirm deletion</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">deployment.apps "welcome-php" deleted</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploying_kustomized_application"><a class="anchor" href="#deploying_kustomized_application"></a>Deploying Kustomized Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Chapter 2 - GitOps Basics, you learned that in a GitOps workflow the
+entire application stack (including infrastructure) is reflected
+in a Git repo. The challenge is how to do this without duplicating
+YAML.</p>
+</div>
+<div class="paragraph">
+<p>So now that you&#8217;ve explored <code>kustomize</code>, let&#8217;s see how it fits into Argo
+CD and how it can be used in a GitOps workflow.</p>
+</div>
+<div class="paragraph">
+<p>Before proceeding, move back into the examples home directory:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd ~/openshift-gitops-workshop/documentation/modules/ROOT/examples</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kustomized_application"><a class="anchor" href="#kustomized_application"></a>Kustomized Application</h3>
+<div class="paragraph">
+<p>Argo CD has native support for Kustomize. You can use this to avoid
+duplicating YAML for each deployment. This is especially helpful if you
+have different environments or clusters you&#8217;re deploying to.</p>
+</div>
+<div class="paragraph">
+<p>Take a look at this <code>Application</code> definition:</p>
+</div>
+<div class="listingblock">
+<div class="title"><a href="https://github.com/OpenShiftDemos/openshift-gitops-workshop/blob/master/documentation/modules/ROOT/examples/bgdk-app.yaml" target="_blank" rel="noopener">bgdk-app.yaml</a></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bgdk-app
+spec:
+  destination:
+    namespace: user$USERNUM-bgdk
+    server: <a href="https://kubernetes.default.svc" class="bare">https://kubernetes.default.svc</a>
+  project: default
+  source:
+    path: documentation/modules/ROOT/examples/bgdk
+    repoURL: <a href="https://github.com/openshiftdemos/openshift-gitops-workshop" class="bare">https://github.com/openshiftdemos/openshift-gitops-workshop</a>
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you will see below, this <code>Application</code> definition refers to the same <strong>base</strong> resources you used in
+Chapter 2. It references a directory path (<code>documentation/modules/ROOT/examples/bgdk</code>)
+which contains a new <code>kustomization.yaml</code> file specific to this application. This concept is called an <strong>overlay</strong>.
+Where a <strong>base</strong> set of manifests are <strong>overlay</strong>-d with your customizations.</p>
+</div>
+<div class="paragraph">
+<p>Click <a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays" target="_blank" rel="noopener">here</a> to learn more about Kustomize bases and overlays,</p>
+</div>
+<div class="paragraph">
+<p>Now take a look at this <code>Kustomization</code> defintion:</p>
+</div>
+<div class="listingblock">
+<div class="title"><a href="https://github.com/OpenShiftDemos/openshift-gitops-workshop/blob/master/documentation/modules/ROOT/examples/bgdk/kustomization.yaml" target="_blank" rel="noopener">kustomization.yaml</a></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../bgd-base
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/env/0/value
+      value: yellow
+  target:
+    group: apps
+    kind: Deployment
+    name: bgd
+    version: v1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This <code>kustomization.yaml</code> takes the base application located at <code>documentation/modules/ROOT/examples/bgd-base</code>
+and patches the <code>Deployment</code> manifest so that you get yellow dots instead of blue ones.</p>
+</div>
+<div class="paragraph">
+<p>Now deploy this application:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sed 's/$USERNUM/%USERNUM%/' ~/openshift-gitops-workshop/documentation/modules/ROOT/examples/bgdk-app.yaml | oc apply -n user%USERNUM%-argocd -f -</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="argocd_web_console"><a class="anchor" href="#argocd_web_console"></a>The Argo CD Web Console</h3>
+<div class="paragraph">
+<p>Switch back to the Argo CD Web UI, you may be
+presented with the Argo CD login screen again.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/argo-cd-login.png" alt="ArgoCD Login">
+</div>
+</div>
+<div class="paragraph">
+<p>You can login using your the same credential you used for OpenShift which
+were provided by the workshop administrator.</p>
+</div>
+<div class="paragraph">
+<p>This should now show you two apps on the Argo CD UI.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/two-apps.png" alt="Two Apps">
+</div>
+</div>
+<div class="paragraph">
+<p>Open the Route for this application. It&#8217;s in the <code>user%USERNUM%-bgdk</code> Project.
+Remember you can get this from the topology view, or from the CLI:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get route -n user%USERNUM%-bgdk bgd -o jsonpath='{"http://"}{.spec.host}{"\n"}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see yellow balls flying around. This is the same application you used
+previously, and so you know that by changing the environment variable on the
+deployment you can change the ball color.</p>
+</div>
+<div class="paragraph">
+<p>Argo CD deployed the application with your <code>kustomize</code>-ations! To review what we
+just did:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deployed an Application called <code>bgd</code> with a blue square.</p>
+</li>
+<li>
+<p>Deployed another Application based on <code>bgd</code> called <code>bgdk</code></p>
+</li>
+<li>
+<p>The Application <code>bgdk</code> was deployed in its own namespace, with deployment
+customizations.</p>
+</li>
+<li>
+<p>ALL without having to duplicate YAML!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
