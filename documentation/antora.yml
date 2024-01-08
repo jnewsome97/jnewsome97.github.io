@@ -1,5 +1,5 @@
-name: openshift-gitops-workshop
-title: OpenShift GitOps Workshop
+name: Modern Application Development Roadshow
+title: Modern Application Development Roadshow
 version: master
 nav:
   - modules/ROOT/nav.adoc
