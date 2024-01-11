@@ -4,7 +4,7 @@
 
 Welcome to the *Modern Application Development Roadshow* Operations (Ops) Track lab guide.
 
-image::mad_ops_intro.png[width=100%]
+image::index/mad_ops_intro.png[width=100%]
 
 This workshop has been crafted to equip participants with essential skills and knowledge for **effectively operating Red Hat OpenShift Container Platform 4**—a hybrid cloud platform that supports containerized applications.
 
