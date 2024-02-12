@@ -1,4 +1,5 @@
 = Application Storage Basics
+
 If a pod in OpenShift needs reliable storage, for example, to host a database,
 we would need to supply a **persistent** volume to the pod. This type of
 storage outlives the container, i.e. it persists when the pod dies. It
@@ -36,6 +37,7 @@ oc project app-management
 ----
 
 == Adding Persistent Volume Claims
+
 Here's how you would instruct OpenShift to create a `PersistentVolume`
 object, which represents external, persistent storage, and have it *mounted*
 inside the container's filesystem:
@@ -110,6 +112,7 @@ You will see there is now both `Mounts` and `Volumes` details about the new stor
 But what is happening under the covers?
 
 == Storage Classes
+
 When OpenShift 4 was first installed, a dynamic storage provider for AWS EBS
 was configured. You can see this `StorageClass` with the following:
 
@@ -141,6 +144,7 @@ various container orchestration systems.
 ====
 
 == Persistent Volume (Claims)
+
 The command you ran earlier referenced a `claim`. Storage in a Kubernetes
 environment uses a system of volume claims and volumes. A user makes a
 `PersistentVolumeClaim` and Kubernetes tries to find a `PersistentVolume`
