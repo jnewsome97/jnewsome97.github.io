@@ -8,7 +8,7 @@
 ** xref:app-storage-basics.adoc[Application Storage Basics]
 ** xref:machinesets.adoc[MachineSets, Machines, and Nodes]
 ** xref:infra-nodes.adoc[Infrastructure Nodes and Operators]
-** xref:logging.adoc[OpenShift Logging with Loki]
+** xref:logging-with-loki.adoc[OpenShift Logging with Loki]
 ** xref:ldap-groupsync.adoc[External (LDAP) Authentication Providers, Users, and Groups]
 ** xref:monitoring-basics[OpenShift Monitoring with Prometheus]
 ** xref:template-quota-limits.adoc[Templates Quotas and Limits]
