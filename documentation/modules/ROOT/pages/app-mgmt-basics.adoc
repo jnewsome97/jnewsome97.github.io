@@ -12,6 +12,7 @@ blocks will help you better see the big picture of application management on the
 platform.
 
 === Projects
+
 A *Project* is a "bucket" of sorts. It's a meta construct where all of a
 user's resources live. From an administrative perspective, each *Project* can
 be thought of like a tenant. *Projects* may have multiple users who can
@@ -27,6 +28,7 @@ oc new-project app-management
 ----
 
 === Deploy a Sample Application
+
 The `new-app` command provides a very simple way to tell OpenShift to run
 things. You simply provide it with one of a wide array of inputs, and it figures
 out what to do. Users will commonly use this command to get OpenShift to launch
@@ -196,6 +198,7 @@ node the pod is running on, the internal IP address of the pod, various labels,
 and other information about what is going on.
 
 === Services
+
 .OpenShift Service
 image::openshift_service.png[]
 
@@ -773,7 +776,7 @@ test it using `curl`:
 
 [source,bash,role="execute"]
 ----
-curl -w "\n" mapit-app-management.%ROUTE_SUBDOMAIN%/health
+curl mapit-app-management.{{ ROUTE_SUBDOMAIN }}/health
 ----
 
 You will get some JSON as a response:
