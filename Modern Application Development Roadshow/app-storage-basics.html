@@ -194,7 +194,9 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>storage outlives the container, i.e. it persists when the pod dies. It
+<p>If a pod in OpenShift needs reliable storage, for example, to host a database,
+we would need to supply a <strong>persistent</strong> volume to the pod. This type of
+storage outlives the container, i.e. it persists when the pod dies. It
 typically comes from an external storage system.</p>
 </div>
 <div class="admonitionblock warning">
