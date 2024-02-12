@@ -209,20 +209,14 @@ in its basic, default state.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_logging_in_to_the_bastion_host"><a class="anchor" href="#_logging_in_to_the_bastion_host"></a>Logging in to the Bastion Host</h2>
+<h2 id="_logging_in"><a class="anchor" href="#_logging_in"></a>Logging in</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To inspect the cluster installation, you can simply SSH to the bastion host where it was installed on like so.
-You can find the bastion SSH login information in the instruction page, use these to replace 'user@bastion'</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/rhpd-bastion-details.png" alt="Bastion details">
-</div>
+<p>To inspect the cluster installation, you can simply SSH to the bastion host where it was installed on like so:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ssh &lt;user@bastion&gt; -o ServerAliveInterval=120</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ssh -l {{ SSH_USERNAME }} {{ BASTION_FQDN }} -o ServerAliveInterval=120</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -245,10 +239,15 @@ Are you sure you want to continue connecting (yes/no)?</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then enter your SSH password from the the instruction page</p>
+<p>Here is your ssh password (please copy/paste):</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">{{ SSH_PASSWORD }}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Once you&#8217;ve SSH-ed into the bastion host, become the <code>ec2-user</code>:</p>
+<p>Once you’ve SSH-ed into the bastion host, become the ec2-user:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
@@ -695,6 +694,18 @@ etc.) in a subsequent exercise.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="_check_the_web_console"><a class="anchor" href="#_check_the_web_console"></a>Check the Web Console</h3>
+<div class="paragraph">
+<p>OpenShift provides a web console for users, developers, application operators, and administrators to interact with the environment. Many of the cluster administration functions, including upgrading the cluster itself, can be performed simply by using the web console.</p>
+</div>
+<div class="paragraph">
+<p>Please feel free to open the web console in another tab (your kubeadmin password can be found on the credentials page. You can do this by simply control+click the following link:</p>
+</div>
+<div class="paragraph">
+<p>{{ MASTER_URL }}</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_you_will_now_exit_the_ssh_session"><a class="anchor" href="#_you_will_now_exit_the_ssh_session"></a>You will now exit the ssh session</h3>
 <div class="listingblock execute">
 <div class="content">
@@ -702,7 +713,7 @@ etc.) in a subsequent exercise.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The login prompt should retunr to a simple <strong>[~] $</strong> rather than <strong>[bastion…]$</strong>.</p>
+<p>The login prompt should return to a simple <strong>[~] $</strong> rather than <strong>[bastion…]$</strong>.</p>
 </div>
 <div class="paragraph">
 <p>If you accidentally hit exit more than once and connection to the console closes restart the Web terminal session.</p>
