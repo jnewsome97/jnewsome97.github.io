@@ -8,6 +8,7 @@ maintaining the state of the cluster size -- including creating and
 destroying `Nodes`!
 
 == MachineSets and Machines
+
 As you saw in the application management exercises, there is a basic
 fundamental relationship between a `ReplicaSet`/`ReplicationController` and
 the `Pods` it creates. Similarly, there is a relationship between a
@@ -100,6 +101,7 @@ If you spend some time using `oc describe` and the various `Machine` and
 `Node` objects, you will figure out which ones correlate with which.
 
 == Cluster Scaling
+
 Because of the magic of `Operators` and the way in which OpenShift uses them
 to manage `Machines` and `Nodes`, scaling your cluster in OpenShift 4 is
 extremely trivial.
