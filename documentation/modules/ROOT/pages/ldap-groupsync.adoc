@@ -30,6 +30,7 @@ group
 ** Contains: `teamuser1`, `teamuser2`
 
 === Examine the OAuth configuration
+
 Since this is a pure, vanilla OpenShift 4 installation, it has the default OAuth resource. You can examine that OAuth configuration with the following:
 
 [source,bash,role="execute"]
@@ -219,6 +220,7 @@ oc rollout status deployment/oauth-openshift -n openshift-authentication
 ----
 
 === Syncing LDAP Groups to OpenShift Groups
+
 In OpenShift, groups can be used to manage users and control permissions for
 multiple users at once. There is a section in the documentation on how to
 link:https://docs.openshift.com/container-platform/4.9/authentication/ldap-syncing.html[sync
@@ -337,6 +339,7 @@ OpenShift that, if it encounters a *User* with that specific ID, that it should
 be associated with the *Group*.
 
 === Change Group Policy
+
 In your environment, there is a special group of super developers called
 _ose-fancy-dev_ who should have special `cluster-reader` privileges. This is a role
 that allows a user to view administrative-level information about the cluster.
@@ -357,6 +360,7 @@ link:https://docs.openshift.com/container-platform/4.9/authentication/using-rbac
 ====
 
 === Examine `cluster-reader` policy
+
 Go ahead and login as a regular user: (if you get an error, wait a few minutes and try again) 
 
 [source,bash,role="execute"]
@@ -410,6 +414,7 @@ You should now be starting to understand how RBAC in OpenShift Container
 Platform can work.
 
 === Create Projects for Collaboration
+
 Make sure you login as the cluster administrator:
 
 [source,bash,role="execute"]
@@ -450,6 +455,7 @@ projects.
 ====
 
 === Map Groups to Projects
+
 As you saw earlier, there are several roles within OpenShift that are
 preconfigured. When it comes to *Projects*, you similarly can grant view, edit,
 or administrative access. Let's give our `ose-teamed-app` users access to edit the
@@ -476,6 +482,7 @@ oc adm policy add-role-to-group edit ose-fancy-dev -n app-prod
 ----
 
 === Examine Group Access
+
 Log in as `normaluser1` and see what *Projects* you can see:
 
 [source,bash,role="execute"]
@@ -541,6 +548,7 @@ See 'oc new-app -h' for examples.
 This failure is exactly what we wanted to see.
 
 == Prometheus
+
 Now that you have a user with `cluster-reader` privileges (one that can see
 many administrative aspects of the cluster), we can visit Prometheus and
 attempt to log-in to it.
