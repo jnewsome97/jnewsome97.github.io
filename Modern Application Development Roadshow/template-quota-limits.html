@@ -296,7 +296,7 @@ for you already. Use <code>cat</code>, <code>less</code>, or your favorite edito
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat madopssupport/project_request_template.yaml</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat {{ HOME_PATH }}/support/project_request_template.yaml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -586,7 +586,7 @@ and simply instantiate the objects provided.</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create -f madopssupport/project_request_template.yaml -n openshift-config</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create -f {{ HOME_PATH }}/support/project_request_template.yaml -n openshift-config</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -657,7 +657,7 @@ changes. To create the <strong>CustomResource</strong>, issue this command:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f madopssupport/cr_project_request.yaml -n openshift-config</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f {{ HOME_PATH }}/support/cr_project_request.yaml -n openshift-config</code></pre>
 </div>
 </div>
 <div class="paragraph">
