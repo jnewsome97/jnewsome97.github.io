@@ -26,7 +26,7 @@ kubeadmin
 +
 [source,role="copypaste"]
 ----
-%KUBEADMIN_PASSWORD%
+{{ KUBEADMIN_PASSWORD }}
 ----
 +
 [WARNING]
