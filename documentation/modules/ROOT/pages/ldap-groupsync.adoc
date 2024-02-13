@@ -175,7 +175,7 @@ As the `kubeadmin` user apply the OAuth configuration with `oc`.
 
 [source,bash,role="execute"]
 ----
-oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%
+oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}
 ----
 
 This command will create a Kubernetes secret named "ldap-secret" in the "openshift-config" namespace with a single data item. The data item is named "bindPassword" and its value is set to "b1ndP^ssword"
