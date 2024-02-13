@@ -31,6 +31,7 @@ There are other ways to gain this type of control besides disabling Project self
 ====
 
 == Background: Projects
+
 What are you disabling exactly? In a previous lab, you learned that a Project
 is a "bucket" of sorts; which holds all the resources for an application. You
 also learned that Projects can be assigned to a user or group for
@@ -44,6 +45,7 @@ communications, registry namespace access, and access to objects within a
 Kubernetes Namespace.
 
 === Examine the Clusterrolebinding
+
 In order to examine the `clusterrolebinding` for `self-provisioners`; you
 need to be *kubeadmin*.
 
@@ -119,6 +121,7 @@ subjects:
 ----
 
 === Removing Self Provisioning Projects
+
 To remove the `self-provisioner` cluster role from the group
 `system:authenticated:oauth` you need to remove that group from the role
 binding.
@@ -185,6 +188,7 @@ oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%
 ----
 
 === Customizing the request message
+
 Now any time a user tries to create a project they will be greeted with the
 same message `You may not request a new project via this API`. You can
 customize this message to give a more meaningful call to action.
