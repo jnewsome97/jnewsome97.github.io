@@ -237,7 +237,7 @@
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -367,7 +367,7 @@ php2-1-ljw9w   1/1     Running   0          4m20s</pre>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -473,7 +473,7 @@ den: exceeded quota: for-user-normaluser1, requested: pods=1, used: pods=10, lim
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}
 oc describe clusterresourcequotas for-user-normaluser1</code></pre>
 </div>
 </div>
@@ -501,7 +501,7 @@ pods            10      10</pre>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -581,7 +581,7 @@ oc new-app -n pricelist-backend --name backend quay.io/redhatworkshops/pricelist
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}
 oc describe clusterresourcequotas for-pricelist</code></pre>
 </div>
 </div>
@@ -655,7 +655,7 @@ oc get events -n pricelist-backend | grep "quota" | head -1</code></pre>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -680,7 +680,7 @@ next lab.</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}
 oc project default</code></pre>
 </div>
 </div>
