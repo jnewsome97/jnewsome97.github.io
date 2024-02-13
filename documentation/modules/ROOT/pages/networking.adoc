@@ -1,4 +1,5 @@
 = OpenShift Network Policy Based SDN
+
 OpenShift's default software defined network (SDN) inside the platform is based
 on Open vSwitch and is called OpenShiftSDN.
 
@@ -21,6 +22,7 @@ have seen projects isolate resources through OpenShift’s RBAC, the network pol
 SDN plugin is able to isolate pods in projects using pod and namespace label selectors.
 
 == Switch Your Project
+
 Before continuing, make sure you are using a project that actually exists. If
 the last thing you did in the previous lab was delete a project, this will
 cause errors in the scripts in this lab.
@@ -31,6 +33,7 @@ oc project default
 ----
 
 == Execute the Creation Script
+
 [NOTE]
 ====
 Only users with project or cluster administration privileges can manipulate *Project*
@@ -46,6 +49,7 @@ bash madopssupport/create-net-projects.sh
 ----
 
 == Examine the created infrastructure
+
 Two *Projects* were created for you, `netproj-a` and `netproj-b`. Execute the
 following command to see the created resources:
 
@@ -81,6 +85,7 @@ We will run commands inside the pod in the `netproj-a` *Project* that will
 connect to TCP port 5000 of the pod in the `netproj-b` *Project*.
 
 == Test Connectivity (should work)
+
 Now that you have some projects and pods, let's test the connectivity between
 the pod in the `netproj-a` *Project* and the pod in the `netproj-b` *Project*.
 
@@ -108,6 +113,7 @@ This worked because, by default, the networkpolicy lets all pods in all
 projects can connect to each other.
 
 == Restricting Access
+
 With NetworkPolicy, it's possible to restrict access in a
 project by creating a `NetworkPolicy` custom resource (CR).
 
@@ -140,6 +146,7 @@ oc create -n netproj-b -f madopssupport/network-policy-block-all.yaml
 ----
 
 == Test Connectivity #2 (should fail)
+
 Since the "block all by default" `NetworkPolicy` CR has been applied,
 connectivity between the pod in the `netproj-a` *Project* and the pod in the
 `netproj-b` *Project* should now be blocked.
@@ -180,6 +187,7 @@ deny-by-default   <none>         3m19s
 ----
 
 == Allow Access
+
 With NetworkPolicy, it's possible to allow access to
 individual or groups of pods in a project by creating multiple
 `NetworkPolicy` CRs.
@@ -244,6 +252,7 @@ deny-by-default                           <none>         7m11s
 ----
 
 == Test Connectivity #3 (should work again)
+
 Since the "allow access from `netproj-a` on port 5000" NetworkPolicy has been applied,
 connectivity between the pod in the `netproj-a` *Project* and the pod in the
 `netproj-b` *Project* should be allowed again.
