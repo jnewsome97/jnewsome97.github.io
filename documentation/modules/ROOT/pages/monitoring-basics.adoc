@@ -1,4 +1,5 @@
 = OpenShift Monitoring
+
 In this lab you will explore various aspects of the builtin OpenShift
 Monitoring. This includes an overview of the OpenShift Alertmanager UI,
 accessing the Prometheus web console, running PromQL (Prometheuses Query
