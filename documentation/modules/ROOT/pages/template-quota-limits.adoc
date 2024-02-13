@@ -1,4 +1,5 @@
 = Project Request Template, Quotas, Limits
+
 In the Application Management Basics lab, you dealt with the fundamental
 building blocks of OpenShift, all contained within a *Project*.
 
@@ -9,11 +10,13 @@ constraints, or in a POC-type environment, that would be fine. But reality calls
 for a little restraint.
 
 == Background: Project Request Template
+
 When users invoke the `oc new-project` command, a new project request flow is
 initiated. During part of this this workflow, a default project *Template* is
 processed to create the newly requested project.
 
 == View the Default Project Request Template
+
 To view the built-in default *Project Request Template*, execute the
 following command:
 
@@ -68,6 +71,7 @@ We will not go into detail on *Templates* in this lab.
 ====
 
 === Modify the Project Request Template
+
 You won't actually have to make template changes in this lab -- we've made them
 for you already. Use `cat`, `less`, or your favorite editor to view the modified
 *Project Request Template*:
@@ -81,6 +85,7 @@ Please take note that there are two new sections added: *ResourceQuota* and
 *LimitRange*.
 
 == Background: ResourceQuota
+
 The
 link:https://docs.openshift.com/container-platform/4.9/applications/quotas/quotas-setting-per-project.html[quota documentation^]
 provides a great description of *ResourceQuota*:
@@ -129,6 +134,7 @@ link:https://docs.openshift.com/container-platform/4.9/applications/quotas/quota
 documentation^]
 
 == Background: LimitRange
+
 The
 link:https://docs.openshift.com/container-platform/4.9/nodes/clusters/nodes-cluster-limit-ranges.html[limit
 range documentation^] provides some good background:
@@ -227,10 +233,12 @@ quota^] documentation. We will not cover multi-project quota in these exercises.
 ====
 
 == Installing the Project Request Template
+
 With this background in place, let's go ahead and actually tell OpenShift to
 use this new *Project Request Template*.
 
 === Create the Template
+
 As we discussed earlier, a *Template* is just another type of OpenShift object.
 The `oc` command provides a `create` function that will take YAML/JSON as input
 and simply instantiate the objects provided.
@@ -259,6 +267,7 @@ project-request                 5 (5 blank)   7
 ----
 
 === Setting the Default ProjectRequestTemplate
+
 The default *projectRequestTemplate* is part of the OpenShift API Server
 configuration. This configuration is ultimately stored in a *ConfigMap* in
 the `openshift-apiserver` project. You can view the API Server configuration
@@ -336,6 +345,7 @@ Notice the new *projectConfig* section:
 ----
 
 === Create a New Project
+
 When creating a new project, you should see that a *Quota* and a *LimitRange*
 are created with it. First, create a new project called `template-test`:
 
@@ -439,6 +449,7 @@ fail to create.
 ====
 
 == Clean Up
+
 If you wish, you can deploy the application from the Application Management
 Basics lab again inside this `template-test` project to observe how the *Quota*
 and *LimitRange* are applied. If you do, be sure to look at the JSON/YAML output
