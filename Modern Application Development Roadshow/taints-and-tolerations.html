@@ -263,7 +263,7 @@ workloads ALWAYS land on a specific node.</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -332,7 +332,7 @@ the home directory.</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create -f madopssupport/welcome-php.yaml</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create -f ~/support/welcome-php.yaml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -616,7 +616,7 @@ oc get nodes -l appnode=welcome-php</code></pre>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p %KUBEADMIN_PASSWORD%</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u kubeadmin -p {{ KUBEADMIN_PASSWORD }}</code></pre>
 </div>
 </div>
 <div class="paragraph">
