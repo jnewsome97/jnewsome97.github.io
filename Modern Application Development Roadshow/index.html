@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Welcome to the MAD Ops Workshop Lab Guide :: Modern Application Development Roadshow Ops Track</title>
+    <title>OpenShift Windows Containers :: Modern Application Development Roadshow Ops Track</title>
     <link rel="canonical" href="https://jnewsome97.github.io/openshift-gitops-workshop/index.html/Modern%20Application%20Development%20Roadshow/index.html">
     <link rel="next" href="setup.html">
     <meta name="generator" content="Antora 3.0.0">
@@ -181,94 +181,60 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Modern Application Development Roadshow</a></li>
-    <li><a href="index.html">Welcome to the MAD Ops Workshop Lab Guide</a></li>
+    <li><a href="index.html">OpenShift Windows Containers</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/jnewsome97/jnewsome97.github.io/edit/master/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Welcome to the MAD Ops Workshop Lab Guide</h1>
+<h1 class="page">OpenShift Windows Containers</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to the <strong>Modern Application Development Roadshow</strong> Operations (Ops) Track lab guide.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/index/mad_ops_intro.png" alt="mad ops intro" width="100%">
-</div>
+<p>Welcome to the OpenShift Windows Containers quickstart demo guide!</p>
 </div>
 <div class="paragraph">
-<p>This workshop has been crafted to equip participants with essential skills and knowledge for <strong>effectively operating Red Hat OpenShift Container Platform 4</strong>—a hybrid cloud platform that supports containerized applications.</p>
+<p>This guide is designed to help you explore the capabilities (and limitations) of Windows Containers on OpenShift. As we approach General Availability (GA), this guide will evolve into a full workshop.</p>
 </div>
 <div class="paragraph">
-<p>In the Ops Track you will learn about:</p>
+<p>Before we begin, a few notes:
+You should have received an email from the RHPDS system. I assume you have it—otherwise, how would you be reading this? :)</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_release_notes"><a class="anchor" href="#_release_notes"></a>Release Notes</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>OpenShift</strong> Administrator Fundamentals</p>
+<p>Updated and enhanced the NetCandyStore modules.</p>
 </li>
 <li>
-<p>Multi-cluster management with <strong>Red Hat Advanced Cluster Management (RHACM)</strong></p>
+<p>Upgraded OpenShift to version 4.12.</p>
 </li>
 <li>
-<p>Improving security across hybrid cloud with <strong>Red Hat Advanced Cluster Security (RHACS)</strong></p>
+<p>Added a new set of instructions.</p>
+</li>
+<li>
+<p><strong>Note:</strong> Starting with version 4.11, the external Prometheus console is no longer available. This workshop is not intended for use with Prometheus or Grafana.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Before you start:</strong> Some sections of the Modern App Development Roadshow require prerequisites that are listed at the beginning of each module. Please check the prerequisites for each module before you begin.</p>
+<p>The email you received contains all the details needed to test or demo Windows Containers, including instructions for SSH-ing into the bastion host. Go ahead and do that now. Here’s an example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">ssh chernand-redhat.com@bastion.lax-e35b.sandbox886.opentlc.com</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Explore at your own pace</strong>, You can start with Admin Operations or jump to RHACM and RHACS. Flexibility is key in the Ops Track of the Modern App Development Roadshow.</p>
-</div>
-</div>
-</div>
-<div class="sect1 text-center strong">
-<h2>Getting Started</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Checking the lab environment is running, logging in and setting up the lab prerequisites</p>
+<p>When prompted for a password, enter the one provided in the email. I recommend copying your SSH key to the bastion host to simplify access. Unless otherwise stated, all commands in this guide assume you’re working from the bastion host.</p>
 </div>
 <div class="paragraph">
-<p><strong><a href="setup.html" class="xref page">Getting Started</a></strong></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2>OpenShift Admin Operations</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Hands-on tasks related to operational management of an OpenShift Cluster. You will be <em>cluster-admin</em>
-for the day on your own cluster.</p>
-</div>
-<div class="paragraph">
-<p><strong><a href="environment.html" class="xref page">OpenShift Admin Operations</a></strong></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2>Advanced Cluster Management</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Explore the cluster lifecycle for managing multiple clusters. Learn about creating, upgrading, and destroying
-and importing clusters in a multi cloud environment.</p>
-</div>
-<div class="paragraph">
-<p><strong><a href="acm-multicluster.html" class="xref page">Red Hat Advanced Cluster Management (RHACM)</a></strong></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2>Advanced Cluster Security</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Explore using cluster security to detect vulnerabilities and then extend its capabilities to DevSecOps inside a CI/CD pipeline.</p>
-</div>
-<div class="paragraph">
-<p><strong><a href="acs-vulnerability.html" class="xref page">Red Hat Advanced Cluster Security (RHACS)</a></strong></p>
+<p>Once you’re logged in, you’re ready to start!</p>
 </div>
 </div>
 </div>
