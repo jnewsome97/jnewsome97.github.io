@@ -24,3 +24,4 @@ ssh chernand-redhat.com@bastion.lax-e35b.sandbox886.opentlc.com
 When prompted for a password, enter the one provided in the email. I recommend copying your SSH key to the bastion host to simplify access. Unless otherwise stated, all commands in this guide assume you’re working from the bastion host.
 
 Once you’re logged in, you’re ready to start!
+
