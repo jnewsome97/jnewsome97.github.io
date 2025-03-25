@@ -13,8 +13,6 @@ All these values need to be successfully set for the lab guide to personalise co
 === Lab Introduction Page
 Please use the lab introduction page to fill in any missing information:
 
-image::rhpd-starter-screen.png[RHPD Starter screen]
-
 === Required Lab Values
 
 * OpenShift Console: *%MASTER_URL%*
