@@ -27,3 +27,4 @@ ui:
 
 output:
   dir: ./gh-pages
+
