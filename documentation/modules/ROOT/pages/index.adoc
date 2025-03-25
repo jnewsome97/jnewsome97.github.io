@@ -1,33 +1,26 @@
-# OpenShift Windows Containers
+= OpenShift Windows Containers
 
 Welcome to the OpenShift Windows Containers quickstart demo guide!
 
-This guide is meant to help you to see what you can (and also cannot) do with Windows Containers on OpenShift. This will eventually turn into a workshop the closer we get to GA.
+This guide is designed to help you explore the capabilities (and limitations) of Windows Containers on OpenShift. As we approach General Availability (GA), this guide will evolve into a full workshop.
 
-A few things before we get started; You should have gotten an email from the RHPDS system. I'm assuming you have or else how else would you be reading this? :)
+Before we begin, a few notes:
+You should have received an email from the RHPDS system. I assume you have it—otherwise, how would you be reading this? :)
 
+== Release Notes
 
-## Release Notes
+- Updated and enhanced the NetCandyStore modules.
+- Upgraded OpenShift to version 4.12.
+- Added a new set of instructions.
+- *Note:* Starting with version 4.11, the external Prometheus console is no longer available. This workshop is not intended for use with Prometheus or Grafana.
 
-- Made changes and improvements to the NetCandyStore modules.
-- We've also pushed OpenShift to 4.12.
-- A new set of instructions is now available.
-- Please be aware that starting from version 4.11, the external Prometheus console has been phased out. This workshop is not intended to be used for Prometheus or Grafana.
+The email you received contains all the details needed to test or demo Windows Containers, including instructions for SSH-ing into the bastion host. Go ahead and do that now. Here’s an example:
 
-That email has all the information you need in order to test/demo Windows Containers. This includes instructions on how to ssh into the bastion host. Go ahead and do that now. Example:
-
-```shell
+[source,shell]
+----
 ssh chernand-redhat.com@bastion.lax-e35b.sandbox886.opentlc.com
-```
+----
 
-When it prompts you for a password; go ahead and provide the password given to you in the email. I suggeest you copy over your ssh key to make things easier. All commands in this guide assume you're on this bastion host, except where otherwise stated.
+When prompted for a password, enter the one provided in the email. I recommend copying your SSH key to the bastion host to simplify access. Unless otherwise stated, all commands in this guide assume you’re working from the bastion host.
 
-Once you're in, you're ready to begin!
-
-<br/><br/><br/>
-<br/><br/><br/>
-<br/><br/><br/>
-<br/><br/><br/>
-<br/><br/><br/>
-
-
+Once you’re logged in, you’re ready to start!
