@@ -1,48 +1,33 @@
-= Welcome to the MAD Ops Workshop Lab Guide
-:page-layout: home
-:!sectids:
+# OpenShift Windows Containers
 
-Welcome to the *Modern Application Development Roadshow* Operations (Ops) Track lab guide.
+Welcome to the OpenShift Windows Containers quickstart demo guide!
 
-image::index/mad_ops_intro.png[width=100%]
+This guide is meant to help you to see what you can (and also cannot) do with Windows Containers on OpenShift. This will eventually turn into a workshop the closer we get to GA.
 
-This workshop has been crafted to equip participants with essential skills and knowledge for **effectively operating Red Hat OpenShift Container Platform 4**—a hybrid cloud platform that supports containerized applications.
+A few things before we get started; You should have gotten an email from the RHPDS system. I'm assuming you have or else how else would you be reading this? :)
 
-In the Ops Track you will learn about:
 
-* **OpenShift** Administrator Fundamentals
+## Release Notes
 
-* Multi-cluster management with **Red Hat Advanced Cluster Management (RHACM)**
+- Made changes and improvements to the NetCandyStore modules.
+- We've also pushed OpenShift to 4.12.
+- A new set of instructions is now available.
+- Please be aware that starting from version 4.11, the external Prometheus console has been phased out. This workshop is not intended to be used for Prometheus or Grafana.
 
-* Improving security across hybrid cloud with **Red Hat Advanced Cluster Security (RHACS)**
+That email has all the information you need in order to test/demo Windows Containers. This includes instructions on how to ssh into the bastion host. Go ahead and do that now. Example:
 
-**Before you start:** Some sections of the Modern App Development Roadshow require prerequisites that are listed at the beginning of each module. Please check the prerequisites for each module before you begin.
+```shell
+ssh chernand-redhat.com@bastion.lax-e35b.sandbox886.opentlc.com
+```
 
-**Explore at your own pace**, You can start with Admin Operations or jump to RHACM and RHACS. Flexibility is key in the Ops Track of the Modern App Development Roadshow.
+When it prompts you for a password; go ahead and provide the password given to you in the email. I suggeest you copy over your ssh key to make things easier. All commands in this guide assume you're on this bastion host, except where otherwise stated.
 
-[.text-center.strong]
-== Getting Started
+Once you're in, you're ready to begin!
 
-Checking the lab environment is running, logging in and setting up the lab prerequisites
+<br/><br/><br/>
+<br/><br/><br/>
+<br/><br/><br/>
+<br/><br/><br/>
+<br/><br/><br/>
 
-*xref:setup.adoc[Getting Started]*
 
-== OpenShift Admin Operations
-
-Hands-on tasks related to operational management of an OpenShift Cluster. You will be _cluster-admin_
-for the day on your own cluster.
-
-*xref:environment.adoc[OpenShift Admin Operations]*
-
-== Advanced Cluster Management
-
-Explore the cluster lifecycle for managing multiple clusters. Learn about creating, upgrading, and destroying 
-and importing clusters in a multi cloud environment.
-
-*xref:acm-multicluster.adoc[Red Hat Advanced Cluster Management (RHACM)]*
-
-== Advanced Cluster Security
-
-Explore using cluster security to detect vulnerabilities and then extend its capabilities to DevSecOps inside a CI/CD pipeline.
-
-*xref:acs-vulnerability.adoc[Red Hat Advanced Cluster Security (RHACS)]*
